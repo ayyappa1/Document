@@ -1,1 +1,41 @@
 
+pipeline{
+     agent {
+	     node{
+		  label 'Document'
+	 }
+ }
+	  stages {
+		    stage('Ansible started'){
+			  steps{
+			      sh 'echo "ansible start....!"'
+			  }
+			}
+			stage('change folder'){
+			  steps{
+			      sh 'cd /var/lib/jenkins/workspace'
+				  sh 'echo "Changing folder....!"'
+			  }
+			}
+			stage('Remove folder'){
+			  steps{
+			      sh 'cd /var/lib/jenkins/workspace'
+			      sh 'rm -rf *'
+				  sh 'echo "Remove folder....!"'
+			  }
+			}
+			stage('Git clone'){
+			  steps{
+			     sh 'git clone https://github.com/selvakann/document.git'
+		             sh 'cd /var/lib/jenkins/workspace/ansible-pipeline'
+			  }
+			}
+			
+		stage('terraform apply'){
+			  steps{
+			      sh 'ansible-playbook test.yml'
+			  }
+			}
+	
+}	
+}
