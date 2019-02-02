@@ -39,8 +39,8 @@ pipeline{
 			}
 		stage('Ansible playbook'){
 			  steps{
-			      sh 'cd /var/lib/jenkins/workspace/ansible/document'
-			      sh  'ansible-playbook test.yml /document'
+			      sh 'cd /var/lib/jenkins/workspace/ansible/document/ && ansible-playbook test.yml'
+			     
 			  }
 			}
 	
