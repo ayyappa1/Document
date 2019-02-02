@@ -27,7 +27,7 @@ pipeline{
 			stage('Git clone'){
 			  steps{
 			     sh 'git clone https://github.com/selvakann/document.git'
-		             sh 'cd /var/lib/jenkins/workspace/ansible-pipeline'
+		             sh 'cd /var/lib/jenkins/workspace/ansible'
 			  }
 			}
 			
