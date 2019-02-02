@@ -40,6 +40,7 @@ pipeline{
 		stage('Ansible playbook'){
 			  steps{
 			      sh 'cd /var/lib/jenkins/workspace/ansible/document'
+			      sh 'chown ec2-user:ec2-user test.yml'
 			      ansiblePlaybook(playbook: 'test.yml')
 			  }
 			}
