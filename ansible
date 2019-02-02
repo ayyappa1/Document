@@ -31,7 +31,7 @@ pipeline{
 			  }
 			}
 			
-		stage('terraform apply'){
+		stage('Ansible playbook'){
 			  steps{
 			      sh 'ansible-playbook test.yml'
 			  }
