@@ -31,7 +31,12 @@ pipeline{
 		            
 			  }
 			}
-			
+			stage('wait for cloning to be complete'){
+			  steps{
+			    echo 'Waiting 30 seconds cloning to be complete'
+ 			    sleep 30 
+		            }
+			}
 		stage('Ansible playbook'){
 			  steps{
 			      sh 'cd /var/lib/jenkins/workspace/ansible/document'
