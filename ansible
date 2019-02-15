@@ -26,7 +26,7 @@ pipeline{
 			}
 			stage('Git clone'){
 			  steps{
-			     sh 'cd /var/lib/jenkins/workspace/ansible'
+			     sh 'cd /var/lib/jenkins/workspace/first-job'
 			     sh 'git clone https://github.com/selvakann/document.git'
 		            
 			  }
@@ -39,7 +39,7 @@ pipeline{
 			}
 		stage('Ansible playbook'){
 			  steps{
-			      sh 'cd /var/lib/jenkins/workspace/ansible/document/ && ansible-playbook test.yml -b'
+			      sh 'cd /var/lib/jenkins/workspace/first-job/document/ && ansible-playbook test.yml -b'
 			     
 			  }
 			}
