@@ -34,7 +34,7 @@ pipeline{
 			stage('wait for cloning to be complete'){
 			  steps{
 			    echo 'Waiting 30 seconds cloning to be complete'
- 			    sleep 30 
+ 			    sleep 3
 		            }
 			}
 		stage('Ansible playbook'){
