@@ -13,20 +13,20 @@ pipeline{
 			}
 			stage('change folder'){
 			  steps{
-			      sh 'cd /var/lib/jenkins/workspace'
+			      sh 'cd /home/ec2-user/workspace'
 				  sh 'echo "Changing folder....!"'
 			  }
 			}
 			stage('Remove folder'){
 			  steps{
-			      sh 'cd /var/lib/jenkins/workspace'
+			      sh 'cd /home/ec2-user/workspace'
 			      sh 'rm -rf *'
 				  sh 'echo "Remove folder....!"'
 			  }
 			}
 			stage('Git clone'){
 			  steps{
-			     sh 'cd /var/lib/jenkins/workspace/ansible-param-job'
+			     sh 'cd /home/ec2-user/workspace/ansible-param-job'
 			     sh 'git clone https://github.com/selvakann/document.git'
 		            
 			  }
@@ -39,7 +39,7 @@ pipeline{
 			}
 		stage('Ansible playbook'){
 			  steps{
-			      sh 'cd /var/lib/jenkins/workspace/ansible-param-job/document/ && ansible-playbook test.yml -b -vvv'
+			      sh 'cd /home/ec2-user/workspace/ansible-param-job/document/ && ansible-playbook test.yml -b -vvv'
 			     
 			  }
 			}
